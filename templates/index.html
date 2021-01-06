@@ -1,8 +1,8 @@
-{% extends "base.html" %}
-{% block links %}
+{% extends "center.html" %}
+{% block more_links %}
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}" type="text/css">
-{% endblock links %}
-{% block content %}
+{% endblock more_links %}
+{% block to_center %}
     <h1>Messages</h1>
     <ul id=ul_messages>
     </ul>
@@ -12,4 +12,4 @@
     </div>
     <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
     <script src="{{url_for('static', filename = 'js/index.js')}}"></script>
-{% endblock content %}
+{% endblock to_center %}

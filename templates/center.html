@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block links %}
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/center.css')}}" type="text/css">
+    {% block more_links %}
+        
+    {% endblock more_links %}
+{% endblock links %}
+{% block content %}
+    <div class="center_container">
+        {% block to_center %}
+            
+        {% endblock to_center %}
+    </div>
+{% endblock content %}
