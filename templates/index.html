@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block links %}
+{% endblock links %}
+{% block content %}
+    <h1>Messages</h1>
+    <ul id=ul_messages>
+    </ul>
+    <div class='message_bar'>
+        <input id='input_message'/>
+        <button onclick="send_message();">Send</button>
+    </div>
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <script src="{{url_for('static', filename = 'js/index.js')}}"></script>
+{% endblock content %}
