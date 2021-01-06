@@ -10,7 +10,6 @@ io = SocketIO(app)
 @io.on('message')
 def handle_message(data):
     """Handle receiving messages"""
-    print(f'\t[[New Message from {data["sender"]}]]: {data["message"]}')
     send(data, broadcast = True)
 
 @app.route('/')

@@ -1,12 +1,59 @@
+h1{
+    margin: 10px;
+}
+
+#ul_messages{
+    text-align: left;
+    margin: 10px;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 10px;
+}
+
+li.message{
+    background: #444;
+    padding: 0px 5px;
+}
+
+li.message:first-child{
+    border-radius: 10px 10px 0 0;
+}
+
+li.message:last-child{
+    border-radius: 0 0 10px 10px;
+}
+
+li.message:only-child{
+    border-radius: 10px;
+}
+
 li.message p{
     padding: 0;
     margin: 0;
 }
 
 .message_sender{
-    font-size: 0.75em;
+    font-size: 0.8em;
 }
 
 .message_content{
-    font-size: 1.2em;
+    font-size: 1.3em;
+}
+
+.message_bar{
+    margin: 10px;
+    display: flex;
+}
+
+.message_bar *{
+    border: none;
+    padding: 5px;
+}
+
+.message_bar input{
+    border-radius: 10px 0 0 10px;
+}
+
+.message_bar button{
+    border-radius: 0 10px 10px 0;
 }

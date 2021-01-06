@@ -6,6 +6,7 @@ body{
 
 .center_container{
     text-align: center;
-    background: #444;
+    background: #222;
     display: block;
+    border-radius: 12px;
 }
