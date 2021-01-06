@@ -1,0 +1,12 @@
+li.message p{
+    padding: 0;
+    margin: 0;
+}
+
+.message_sender{
+    font-size: 0.75em;
+}
+
+.message_content{
+    font-size: 1.1em;
+}

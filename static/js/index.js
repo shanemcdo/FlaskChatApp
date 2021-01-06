@@ -6,8 +6,9 @@ socket.on('message', data => {
     sender.className = 'message_sender'
     sender.innerText = data['sender'];
     let message = document.createElement('p');
-    sender.className = 'message_content'
+    message.className = 'message_content'
     message.innerText = data['message'];
+    li.className = 'message'
     li.appendChild(sender);
     li.appendChild(message);
     ul_messages.appendChild(li);
