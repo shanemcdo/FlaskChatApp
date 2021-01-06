@@ -1,0 +1,6 @@
+{% extends "credentials_input.html" %}
+{% set action = "/signup/" %}
+{% set title = "Sign up" %}
+{% block redirect_link %}
+    <p class='link'>Already have an account? <a href="/login/">Log in!</a></p>
+{% endblock redirect_link %}
