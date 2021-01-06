@@ -60,6 +60,7 @@ h1{
 
 li.message{
     padding: 0px 5px;
+    padding-bottom: 5px;
 }
 
 li.message p{
@@ -73,6 +74,9 @@ li.message:hover{
 
 li.message:first-child{
     margin-top: auto;
+}
+
+li.message:last-child{
 }
 
 ::-webkit-scrollbar{
