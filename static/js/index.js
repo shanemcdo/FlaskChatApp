@@ -11,7 +11,13 @@ socket.on('message', data => {
     li.className = 'message'
     li.appendChild(sender);
     li.appendChild(message);
+    if(data['sender'] === socket.username)
+        li.classList.add('sent_by_me');
     ul_messages.appendChild(li);
+})
+
+socket.on('change_username', username =>{
+    socket.username = username;
 })
 
 input_message.addEventListener('keydown', event =>{
@@ -21,8 +27,8 @@ input_message.addEventListener('keydown', event =>{
 
 function send_message(){
     if(input_message.value !== ''){
-        socket.emit('message', {
-            sender: 'noone',
+        socket.send({
+            sender: socket.username,
             message: input_message.value,
         });
         input_message.value = '';

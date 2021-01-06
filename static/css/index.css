@@ -57,3 +57,7 @@ li.message p{
 .message_bar button{
     border-radius: 0 10px 10px 0;
 }
+
+.sent_by_me{
+    text-align: right;
+}

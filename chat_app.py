@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, url_for, session, request
-from flask_socketio import SocketIO, send
+from flask_socketio import SocketIO, send, emit
 from flask_pymongo import PyMongo
 from my_secrets import SECRET_KEY, MONGO_URI
 import bcrypt
@@ -8,8 +8,14 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY # randomly generated code
 app.config['MONGO_URI'] = MONGO_URI # connection to database
 app.config['DEBUG'] = True
-io = SocketIO(app)
+io = SocketIO(app, manage_session = False)
 mongo = PyMongo(app) # get the database
+
+@io.on('connect')
+def handle_connect():
+    """Handle new connections"""
+    print('[[New connection]]', session['username'])
+    emit('change_username', session['username'], broadcast = False)
 
 @io.on('message')
 def handle_message(data):
@@ -57,5 +63,20 @@ def signup():
             return redirect(url_for('index'))
     return render_template('signup.html')
 
+@app.route('/logout/')
+def logout():
+    """Log the user out"""
+    if 'username' in session:
+        del session['username']
+    return redirect(url_for('login'))
+
+@app.route('/delete_account/')
+def delete_account():
+    """Delete the current account"""
+    if 'username' in session:
+        mongo.db.users.delete_one({'username': session['username']}) # delete current user
+        return logout()
+    return redirect(url_for('login'))
+
 if __name__ == "__main__": # driver code
-    io.run(app)
+    io.run(app, host='0.0.0.0')
