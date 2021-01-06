@@ -3,6 +3,13 @@
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}" type="text/css">
 {% endblock more_links %}
 {% block to_center %}
+    <div class="account_container">
+        <p class="account_button">{{username}}</p>
+        <ul class="account_options">
+            <li onclick="location.href='/logout/'">Logout</li>
+            <li onclick="location.href='/delete_account/'">Delete Account</li>
+        </ul>
+    </div>
     <h1>Messages</h1>
     <ul id=ul_messages>
     </ul>

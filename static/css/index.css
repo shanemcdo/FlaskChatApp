@@ -1,3 +1,44 @@
+.account_container{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #444;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+    border: 2px solid #555;
+    overflow: hidden;
+}
+
+.account_button{
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.account_options{
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.account_button, .account_options li{
+    padding: 8px;
+}
+
+.account_options li{
+    cursor: pointer;
+}
+
+.account_button:hover, .account_options li:hover{
+    background: #555;
+}
+
+.account_container:hover .account_options{
+    height: auto;
+}
+
 h1{
     margin: 10px;
 }
@@ -8,28 +49,34 @@ h1{
     list-style-type: none;
     padding: 0;
     border-radius: 10px;
+    width: 80vw;
+    height: 70vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    background: #444;
+    display: flex;
+    flex-direction: column;
 }
 
 li.message{
-    background: #444;
     padding: 0px 5px;
-}
-
-li.message:first-child{
-    border-radius: 10px 10px 0 0;
-}
-
-li.message:last-child{
-    border-radius: 0 0 10px 10px;
-}
-
-li.message:only-child{
-    border-radius: 10px;
 }
 
 li.message p{
     padding: 0;
     margin: 0;
+}
+
+li.message:hover{
+    background: #555;
+}
+
+li.message:first-child{
+    margin-top: auto;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
 
 .message_sender{
@@ -40,6 +87,12 @@ li.message p{
     font-size: 1.3em;
 }
 
+.message_announcement{
+    font-weight: bold;
+    text-align: center;
+    color: #aaa;
+}
+
 .message_bar{
     margin: 10px;
     display: flex;
@@ -48,10 +101,17 @@ li.message p{
 .message_bar *{
     border: none;
     padding: 5px;
+    color: #aaa;
+    background: #444;
+}
+
+.message_bar *:hover{
+    background: #555;
 }
 
 .message_bar input{
     border-radius: 10px 0 0 10px;
+    width: 100%;
 }
 
 .message_bar button{

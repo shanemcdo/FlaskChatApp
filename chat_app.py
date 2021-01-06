@@ -16,6 +16,12 @@ def handle_connect():
     """Handle new connections"""
     print('[[New connection]]', session['username'])
     emit('change_username', session['username'], broadcast = False)
+    emit('join_event', session['username'], broadcast = True)
+
+@io.on('disconnect')
+def handle_disconnect():
+    print('[[Disconnected]]', session['username'])
+    emit('leave_event', session['username'], broadcast = True)
 
 @io.on('message')
 def handle_message(data):
@@ -26,7 +32,7 @@ def handle_message(data):
 def index():
     """Serve the main page of the website"""
     if 'username' in session:
-        return render_template('index.html')
+        return render_template('index.html', username=session['username'])
     return redirect(url_for('login'))
 
 @app.route('/login/', methods = ['GET', 'POST'])
