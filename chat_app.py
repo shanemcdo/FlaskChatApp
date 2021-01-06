@@ -1,11 +1,14 @@
 from flask import Flask, redirect, render_template, url_for, session
 from flask_socketio import SocketIO, send
-from my_secrets import SECRET_KEY
+from flask_pymongo import PyMongo
+from my_secrets import SECRET_KEY, MONGO_URI
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY # randomly generated code
+app.config['MONGO_URI'] = MONGO_URI # connection to database
 app.config['DEBUG'] = True
 io = SocketIO(app)
+mongo = PyMongo(app) # get the database
 
 @io.on('message')
 def handle_message(data):
