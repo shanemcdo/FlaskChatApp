@@ -29,6 +29,7 @@ socket.on('join_event', username =>{
     li.className = 'message'
     li.appendChild(p);
     ul_messages.appendChild(li);
+    ul_messages.scrollTop = ul_messages.scrollHeight;
 })
 
 socket.on('leave_event', username =>{
@@ -39,6 +40,7 @@ socket.on('leave_event', username =>{
     li.className = 'message'
     li.appendChild(p);
     ul_messages.appendChild(li);
+    ul_messages.scrollTop = ul_messages.scrollHeight;
 })
 
 input_message.addEventListener('keydown', event =>{
