@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from flask import Flask, redirect, render_template, url_for, session, request
 from flask_socketio import SocketIO, send, emit
 from flask_pymongo import PyMongo
@@ -85,4 +87,4 @@ def delete_account():
     return redirect(url_for('login'))
 
 if __name__ == "__main__": # driver code
-    io.run(app, host='0.0.0.0')
+    io.run(app)
